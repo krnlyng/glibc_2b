@@ -91,3 +91,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_localstatedir}/*
 /%{_lib}/*
 %{_usr}/*
+/sbin/ldconfig
+/sbin/sln
