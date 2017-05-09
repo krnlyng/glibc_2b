@@ -17,6 +17,7 @@ BuildRequires:  zlib-devel texinfo
 BuildRequires: sed >= 3.95, libcap-devel, gettext
 #BuildRequires: /bin/ps, /bin/kill, /bin/awk, procps
 BuildRequires: gawk,  util-linux, quilt
+BuildRequires: make >= 3.82
 # This gcc >= 3.2 is to ensure that __frame_state_for is exported by glibc
 # will be compatible with egcs 1.x.y
 BuildRequires: gcc >= 3.2
@@ -83,8 +84,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %{_libdir}/*
+%{_bindir}/*
+%{_sbindir}/*
 %{_datadir}/*
-%{_sdatadir}/*
 %{_sysconfdir}/*
 %{_localstatedir}/*
 
