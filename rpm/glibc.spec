@@ -3,9 +3,9 @@ Version:        2.25
 Release:        1%{?dist}
 Summary:        glibc
 
-Group:          
-License:        
-URL:            
+License: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
+Group: System Environment/Libraries
+URL: http://www.gnu.org/software/glibc/
 Source0:        %{name}-%{version}.tar.bz2
 
 # Require libgcc in case some program calls pthread_cancel in its %%post
