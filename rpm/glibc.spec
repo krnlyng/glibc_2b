@@ -53,9 +53,10 @@ glibc
 
 
 %build
+find . 
 mkdir build
 cd build
-../configure --prefix=%{_prefix}
+../glibc/configure --prefix=%{_prefix}
 make %{?_smp_mflags}
 
 
