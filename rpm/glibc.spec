@@ -56,7 +56,18 @@ glibc
 find . 
 mkdir build
 cd build
-../glibc/configure --prefix=%{_prefix}
+build_CFLAGS="$BuildFlags -g -O3 $*"
+../glibc/configure CC="$GCC" CXX="$GXX" CFLAGS="$build_CFLAGS" \
+	--prefix=%{_prefix} \
+	--enable-add-ons=nptl$AddOns --without-cvs $EnableKernel \
+	--with-headers=%{_prefix}/include --enable-bind-now \
+	--with-tls --with-__thread  \
+%ifnarch %{arm}
+	--build %{nptl_target_cpu}-%{_vendor}-linux \
+	--host %{nptl_target_cpu}-%{_vendor}-linux \
+%else
+%endif
+	--disable-profile --enable-experimental-malloc 
 make %{?_smp_mflags}
 
 
