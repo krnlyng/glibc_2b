@@ -53,11 +53,14 @@ glibc
 
 
 %build
-../glibc/configure --prefix=%{_prefix}
+mkdir build
+cd build
+../configure --prefix=%{_prefix}
 make %{?_smp_mflags}
 
 
 %install
+cd build
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
