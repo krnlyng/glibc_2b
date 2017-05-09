@@ -40,7 +40,7 @@ BuildRequires: gcc >= 3.2
 
 # Need AS_NEEDED directive
 # Need --hash-style=* support
-BuildRequires: binutils >= 2.19.51.0.10
+BuildRequires: binutils >= 2.25
 BuildRequires: gcc >= 3.2.1-5
 BuildRequires: elfutils >= 0.72
 BuildRequires: rpm >= 4.2-0.56
@@ -53,13 +53,12 @@ glibc
 
 
 %build
-find . 
 mkdir build
 cd build
 build_CFLAGS="$BuildFlags -g -O3 $*"
 ../glibc/configure CC="$GCC" CXX="$GXX" CFLAGS="$build_CFLAGS" \
 	--prefix=%{_prefix} \
-	--enable-add-ons=nptl$AddOns --without-cvs $EnableKernel \
+	--without-cvs $EnableKernel \
 	--with-headers=%{_prefix}/include --enable-bind-now \
 	--with-tls --with-__thread  \
 %ifnarch %{arm}
