@@ -82,4 +82,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
+%{_libdir}/*
+%{_datadir}/*
+%{_sdatadir}/*
+%{_sysconfdir}/*
+%{_localstatedir}/*
 
